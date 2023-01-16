@@ -3,7 +3,6 @@ import { Sprite } from "@pixi/sprite";
 import { Texture } from "@pixi/core";
 
 import Button from "./components/Button";
-
 export default class App extends Application {
   constructor() {
     super({
