@@ -1,6 +1,6 @@
-## PixiJS v5. Flexible Buttons
+## Проект по карточной игре
 
-Flexible UI buttons in PixiJS v5. Quick, simple and common solution for PixiJS UI without ReactJS, VueJS and similar heavy libs.
+Итоговые команды для старта сервера и билда
 
 Install dependencies:
 ```
