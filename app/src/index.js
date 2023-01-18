@@ -17,6 +17,11 @@ Application.registerPlugin(TickerPlugin);
 import { AppLoaderPlugin } from "@pixi/loaders";
 Application.registerPlugin(AppLoaderPlugin);
 
+// before loade resurces class
+
 import App from "./App";
 
-new App();
+setTimeout(() => {
+    new App();
+}, 1000)
+

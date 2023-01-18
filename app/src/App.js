@@ -1,14 +1,15 @@
-import {Application} from "@pixi/app";
-import {Sprite} from "@pixi/sprite";
-import {Texture} from "@pixi/core";
-import {Container} from "@pixi/display";
+import { Application } from "@pixi/app";
+import { Sprite } from "@pixi/sprite";
+import { Texture } from "@pixi/core";
+import { Container } from "@pixi/display";
 
 import Button from "./components/Button";
 
 export default class App extends Application {
   constructor() {
     super({
-      width: window.innerWidth, height: window.innerHeight,
+      width: window.innerWidth,
+      height: window.innerHeight,
     });
 
     document.body.appendChild(this.view); // Put Canvas tag in the body
@@ -27,9 +28,9 @@ export default class App extends Application {
   }
 
   setup() {
-    this.createBackground()
+    this.createBackground();
 
-    this.createHeader()
+    this.createHeader();
 
     this.onResize();
   }
@@ -43,23 +44,30 @@ export default class App extends Application {
     this.stage.addChild(this.background);
   }
 
-  createHeader (){
+  createHeader() {
     // create header container
     this.headerContainer = new Container();
 
     // create header wrapper
     this.headerWrap = new Sprite.from("headerBg");
     this.headerWrap.width = window.innerWidth + 16; // custom todo normilize
-    this.headerWrap.y = 36 // custom todo normilize
-    this.headerWrap.x = -8 // custom todo normilize
+    this.headerWrap.y = 36; // custom todo normilize
+    this.headerWrap.x = -8; // custom todo normilize
 
     this.buttonBuy = new Button({
       height: 68,
       label: "КУПИТЬ МОНЕТЫ",
       nameTexture: "buttonBuy",
+      labelShadow: {
+        dropShadow: true,
+        dropShadowAlpha: 0.3,
+        dropShadowAngle: 0.5,
+        dropShadowBlur: 5,
+        dropShadowColor: "#000000",
+      },
       width: 276,
       x: window.innerWidth * 0.5 - 8, // custom todo normilize
-      y: (52 * 0.5) + 40, // custom todo normilize
+      y: 52 * 0.5 + 40, // custom todo normilize
       onTap: () => console.log("Купить монеты"),
     });
 
@@ -67,14 +75,18 @@ export default class App extends Application {
       height: 36,
       label: "ПРИГЛАСИТЬ",
       nameTexture: "buttonInvite",
-      labelColor: '#361206',
+      labelColor: "#361206",
       width: 142,
-      x: window.innerWidth * 0.8, // custom todo normilize
-      y: (36 * 0.5) + 50, // custom todo normilize
+      x: window.innerWidth * 0.72, // custom todo normilize
+      y: 36 * 0.5 + 46, // custom todo normilize
       onTap: () => console.log("Пригласить"),
     });
 
-    this.headerContainer.addChild(this.headerWrap, this.buttonBuy, this.buttonInvite)
+    this.headerContainer.addChild(
+      this.headerWrap,
+      this.buttonBuy,
+      this.buttonInvite
+    );
 
     this.stage.addChild(this.headerContainer);
   }
