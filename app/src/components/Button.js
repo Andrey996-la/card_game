@@ -6,7 +6,7 @@ export default class Button extends NineSlicePlane {
   constructor(settings) {
     const texture = Texture.from(settings.nameTexture);
 
-    const notScalableArea = 20; // Indent from left, top, right and bottom sides in pixels
+    const notScalableArea = 0; // Indent from left, top, right and bottom sides in pixels padding
 
     super(
       texture,
@@ -27,8 +27,9 @@ export default class Button extends NineSlicePlane {
       tint: 0xffffff,
       width: 200,
       labelColor: "#FFFFFF",
+      labelShadow: {},
       x: 0,
-      y: 0
+      y: 0,
     };
 
     // The button's state.
@@ -101,11 +102,9 @@ export default class Button extends NineSlicePlane {
 
     if (this.isActive === true) {
       this.tint = this.settings.activeTint;
-    } 
-    else if (this.isOver === true) {
+    } else if (this.isOver === true) {
       this.tint = this.settings.overTint;
-    } 
-    else {
+    } else {
       this.tint = this.settings.tint;
     }
 
@@ -114,6 +113,8 @@ export default class Button extends NineSlicePlane {
     this.label.style = {
       fontSize: this.settings.fontSize + "px",
       fill: this.settings.labelColor,
+      fontFamily: "Verdana",
+      ...this.settings.labelShadow
     };
 
     this.onResize();
@@ -127,8 +128,8 @@ export default class Button extends NineSlicePlane {
     this.label.x = this.settings.width * 0.5;
     this.label.y = this.settings.height * 0.5;
 
-    this.x = this.settings.x
-    this.y = this.settings.y
+    this.x = this.settings.x;
+    this.y = this.settings.y;
 
     this.pivot.set(this.width * 0.5, this.height * 0.5);
   }
