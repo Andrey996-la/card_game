@@ -21,7 +21,7 @@ function setup() {
   // get a reference to the sprite sheet you've just loaded:
   let sheet = PIXI.Loader.shared.resources["images/start/spritesheet.json"];
 
-  background = new PIXI.Sprite(sheet.textures["background.png"]);
+  background = new PIXI.SpriteEl(sheet.textures["background.png"]);
 
   app.stage.addChild(background);
 
