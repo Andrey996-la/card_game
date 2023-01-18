@@ -26,16 +26,20 @@ export default class App extends Application {
   }
 
   setup() {
+    this.createBackground()
+
+    this.createHeader()
+
+    this.onResize();
+  }
+
+  createBackground() {
     // create background
     this.background = new Sprite.from("background");
     this.background.width = window.innerWidth;
     this.background.height = window.innerHeight;
 
     this.stage.addChild(this.background);
-
-    this.createHeader()
-
-    this.onResize();
   }
 
   createHeader (){
