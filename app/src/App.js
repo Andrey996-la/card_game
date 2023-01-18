@@ -2,6 +2,7 @@ import { Application } from "@pixi/app";
 import { Sprite } from "@pixi/sprite";
 import { Texture } from "@pixi/core";
 import { Container } from "@pixi/display";
+import { Text } from "@pixi/text";
 
 import Button from "./components/Button";
 
@@ -23,6 +24,7 @@ export default class App extends Application {
     this.loader.add("headerButtonBuy", "./assets/headerButtonBuy.png");
     this.loader.add("headerButtonInvite", "./assets/headerButtonInvite.png");
     this.loader.add("headerButtonSound", "./assets/headerButtonSound.png");
+    this.loader.add("headerBalanceMoney", "./assets/headerBalanceMoney.png");
     this.loader.add("background", "./assets/background.png");
     this.loader.add("headerBg", "./assets/headerBg.png");
     this.loader.load(this.setup.bind(this));
@@ -94,11 +96,31 @@ export default class App extends Application {
       onTap: () => console.log("off sound"),
     });
 
+
+    // Header Balance
+    this.headerBalance = new Container();
+    this.headerBalance.x = window.innerWidth * 0.64, // custom todo normilize
+    this.headerBalance.y = 36 * 0.5 + 46, // custom todo normilize
+
+    this.headerBalanceText = new Text("500", {
+      fontSize: 17,
+      fill: "#FFFFFF",
+    });
+    this.headerBalanceText.anchor.set(0.5)
+
+    this.headerBalanceMoney = new Sprite.from("headerBalanceMoney");
+    this.headerBalanceMoney.anchor.set(0.5)
+    this.headerBalanceMoney.x = -110
+
+
+    this.headerBalance.addChild(this.headerBalanceText, this.headerBalanceMoney);
+
     this.headerContainer.addChild(
       this.headerWrap,
       this.headerButtonBuy,
       this.headerButtonInvite,
       this.headerButtonSound,
+      this.headerBalance
     );
 
     this.stage.addChild(this.headerContainer);
