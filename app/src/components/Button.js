@@ -19,17 +19,14 @@ export default class Button extends NineSlicePlane {
     /** Contains settings for the button */
     this.settings = {
       // Default values
-      activeStroke: "#114477",
       activeTint: 0xaaaaaa,
       fontSize: 17,
       height: 100,
       label: "Button",
-      overStroke: "#225588",
       overTint: 0xdddddd,
-      stroke: "#336699",
-      strokeThickness: 4,
       tint: 0xffffff,
       width: 200,
+      labelColor: "#FFFFFF",
       x: 0,
       y: 0
     };
@@ -102,15 +99,11 @@ export default class Button extends NineSlicePlane {
       ...settings, // including new settings
     };
 
-    let stroke = this.settings.stroke;
-
     if (this.isActive === true) {
       this.tint = this.settings.activeTint;
-      stroke = this.settings.activeStroke;
     } 
     else if (this.isOver === true) {
       this.tint = this.settings.overTint;
-      stroke = this.settings.overStroke;
     } 
     else {
       this.tint = this.settings.tint;
@@ -120,9 +113,7 @@ export default class Button extends NineSlicePlane {
 
     this.label.style = {
       fontSize: this.settings.fontSize + "px",
-      fill: "#ffffff",
-      stroke: stroke,
-      strokeThickness: this.settings.strokeThickness,
+      fill: this.settings.labelColor,
     };
 
     this.onResize();
@@ -133,8 +124,8 @@ export default class Button extends NineSlicePlane {
     this.width = this.settings.width;
     this.height = this.settings.height;
 
-    this.label.x = this.width * 0.5;
-    this.label.y = this.height * 0.5;
+    this.label.x = this.settings.width * 0.5;
+    this.label.y = this.settings.height * 0.5;
 
     this.x = this.settings.x
     this.y = this.settings.y
