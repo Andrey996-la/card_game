@@ -19,17 +19,19 @@ export default class Button extends NineSlicePlane {
     /** Contains settings for the button */
     this.settings = {
       // Default values
-      width: 200,
-      height: 100,
+      activeStroke: "#114477",
+      activeTint: 0xaaaaaa,
       fontSize: 35,
+      height: 100,
       label: "Button",
+      overStroke: "#225588",
+      overTint: 0xdddddd,
       stroke: "#336699",
       strokeThickness: 4,
       tint: 0xffffff,
-      overTint: 0xdddddd,
-      activeTint: 0xaaaaaa,
-      overStroke: "#225588",
-      activeStroke: "#114477",
+      width: 200,
+      x: 0,
+      y: 0
     };
 
     // The button's state.
