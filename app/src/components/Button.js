@@ -21,7 +21,7 @@ export default class Button extends NineSlicePlane {
       // Default values
       activeStroke: "#114477",
       activeTint: 0xaaaaaa,
-      fontSize: 35,
+      fontSize: 17,
       height: 100,
       label: "Button",
       overStroke: "#225588",

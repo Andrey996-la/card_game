@@ -47,25 +47,29 @@ export default class App extends Application {
     // create header container
     this.headerContainer = new Container();
 
+    // create header wrapper
     this.headerWrap = new Sprite.from("headerBg");
+    this.headerWrap.width = window.innerWidth + 48;
+    this.headerWrap.y = 40
+    this.headerWrap.x = -20
 
     this.buttonBuy = new Button({
-      height: 80,
+      height: 52,
       label: "Купить монеты",
       nameTexture: "buttonBuy",
-      width: 300,
-      x: 400,
-      y: 400,
+      width: 262,
+      x: window.innerWidth * 0.5, 
+      y: (52 * 0.5) + 40,
       onTap: () => console.log("Купить монеты"),
     });
 
     this.buttonInvite = new Button({
-      height: 80,
+      height: 36,
       label: "Пригласить",
       nameTexture: "buttonInvite",
-      width: 300,
-      x: 600,
-      y: 600,
+      width: 142,
+      x: window.innerWidth * 0.8, 
+      y: (36 * 0.5) + 50,
       onTap: () => console.log("Пригласить"),
     });
 
