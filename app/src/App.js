@@ -58,18 +58,18 @@ export default class App extends Application {
       label: "Купить монеты",
       nameTexture: "buttonBuy",
       width: 262,
-      x: this.renderer.width * 0.5, 
-      y: 72,// берется размер кнопки и половина отступа от высоты
+      x: window.innerWidth * 0.5, 
+      y: (52 * 0.5) + 40,
       onTap: () => console.log("Купить монеты"),
     });
 
     this.buttonInvite = new Button({
-      height: 80,
+      height: 36,
       label: "Пригласить",
       nameTexture: "buttonInvite",
-      width: 300,
-      x: 600,
-      y: 600,
+      width: 142,
+      x: window.innerWidth * 0.8, 
+      y: (36 * 0.5) + 50,
       onTap: () => console.log("Пригласить"),
     });
 
