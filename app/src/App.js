@@ -47,15 +47,19 @@ export default class App extends Application {
     // create header container
     this.headerContainer = new Container();
 
+    // create header wrapper
     this.headerWrap = new Sprite.from("headerBg");
+    this.headerWrap.width = window.innerWidth + 48;
+    this.headerWrap.y = 40
+    this.headerWrap.x = -20
 
     this.buttonBuy = new Button({
-      height: 80,
+      height: 52,
       label: "Купить монеты",
       nameTexture: "buttonBuy",
-      width: 300,
-      x: 400,
-      y: 400,
+      width: 262,
+      x: this.renderer.width * 0.5, 
+      y: 72,// берется размер кнопки и половина отступа от высоты
       onTap: () => console.log("Купить монеты"),
     });
 
