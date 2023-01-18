@@ -22,6 +22,7 @@ export default class App extends Application {
     this.loader.add("buttonBuy", "./assets/buttonBuy.png");
     this.loader.add("buttonInvite", "./assets/buttonInvite.png");
     this.loader.add("background", "./assets/background.png");
+    this.loader.add("headerBg", "./assets/header-bg.png");
     this.loader.load(this.setup.bind(this));
   }
 
@@ -46,6 +47,8 @@ export default class App extends Application {
     // create header container
     this.headerContainer = new Container();
 
+    this.headerWrap = new Sprite.from("headerBg");
+
     this.buttonBuy = new Button({
       height: 80,
       label: "Купить монеты",
@@ -66,7 +69,7 @@ export default class App extends Application {
       onTap: () => console.log("Пригласить"),
     });
 
-    this.headerContainer.addChild(this.buttonBuy, this.buttonInvite)
+    this.headerContainer.addChild(this.headerWrap, this.buttonBuy, this.buttonInvite)
 
     this.stage.addChild(this.headerContainer);
   }
