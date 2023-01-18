@@ -23,7 +23,8 @@ export default class App extends Application {
     this.loader.add("buttonBuy", "./assets/buttonBuy.png");
     this.loader.add("buttonInvite", "./assets/buttonInvite.png");
     this.loader.add("background", "./assets/background.png");
-    this.loader.add("headerBg", "./assets/header-bg.png");
+    this.loader.add("headerBg", "./assets/headerBg.png");
+    this.loader.add("buttonSound", "./assets/buttonSound.png");
     this.loader.load(this.setup.bind(this));
   }
 
@@ -57,7 +58,6 @@ export default class App extends Application {
     this.buttonBuy = new Button({
       height: 68,
       label: "КУПИТЬ МОНЕТЫ",
-      nameTexture: "buttonBuy",
       labelShadow: {
         dropShadow: true,
         dropShadowAlpha: 0.3,
@@ -65,6 +65,7 @@ export default class App extends Application {
         dropShadowBlur: 5,
         dropShadowColor: "#000000",
       },
+      nameTexture: "buttonBuy",
       width: 276,
       x: window.innerWidth * 0.5 - 8, // custom todo normilize
       y: 52 * 0.5 + 40, // custom todo normilize
@@ -74,18 +75,30 @@ export default class App extends Application {
     this.buttonInvite = new Button({
       height: 36,
       label: "ПРИГЛАСИТЬ",
-      nameTexture: "buttonInvite",
       labelColor: "#361206",
+      nameTexture: "buttonInvite",
       width: 142,
       x: window.innerWidth * 0.72, // custom todo normilize
       y: 36 * 0.5 + 46, // custom todo normilize
       onTap: () => console.log("Пригласить"),
     });
 
+    this.buttonSound = new Button({
+      height: 36,
+      label: "",
+      nameTexture: "buttonSound",
+      labelColor: "#361206",
+      width: 40,
+      x: window.innerWidth * 0.773, // custom todo normilize
+      y: 36 * 0.5 +46, // custom todo normilize
+      onTap: () => console.log("off sound"),
+    });
+
     this.headerContainer.addChild(
       this.headerWrap,
       this.buttonBuy,
-      this.buttonInvite
+      this.buttonInvite,
+      this.buttonSound,
     );
 
     this.stage.addChild(this.headerContainer);
