@@ -49,27 +49,28 @@ export default class App extends Application {
 
     // create header wrapper
     this.headerWrap = new Sprite.from("headerBg");
-    this.headerWrap.width = window.innerWidth + 48;
-    this.headerWrap.y = 40
-    this.headerWrap.x = -20
+    this.headerWrap.width = window.innerWidth + 16; // custom todo normilize
+    this.headerWrap.y = 36 // custom todo normilize
+    this.headerWrap.x = -8 // custom todo normilize
 
     this.buttonBuy = new Button({
-      height: 52,
-      label: "Купить монеты",
+      height: 68,
+      label: "КУПИТЬ МОНЕТЫ",
       nameTexture: "buttonBuy",
-      width: 262,
-      x: window.innerWidth * 0.5, 
-      y: (52 * 0.5) + 40,
+      width: 276,
+      x: window.innerWidth * 0.5 - 8, // custom todo normilize
+      y: (52 * 0.5) + 40, // custom todo normilize
       onTap: () => console.log("Купить монеты"),
     });
 
     this.buttonInvite = new Button({
       height: 36,
-      label: "Пригласить",
+      label: "ПРИГЛАСИТЬ",
       nameTexture: "buttonInvite",
+      labelColor: '#361206',
       width: 142,
-      x: window.innerWidth * 0.8, 
-      y: (36 * 0.5) + 50,
+      x: window.innerWidth * 0.8, // custom todo normilize
+      y: (36 * 0.5) + 50, // custom todo normilize
       onTap: () => console.log("Пригласить"),
     });
 
