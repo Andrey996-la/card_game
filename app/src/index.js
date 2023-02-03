@@ -19,9 +19,7 @@ Application.registerPlugin(AppLoaderPlugin);
 
 // before loade resurces class
 
-import App from "./App";
+import App from "./MenuScene";
 
-setTimeout(() => {
-    new App();
-}, 1000)
+new App();
 
